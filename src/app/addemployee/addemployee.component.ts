@@ -14,23 +14,18 @@ export class AddemployeeComponent {
   designation:string;
   employee: Employee;
 
-  // Services injected in constructor
   constructor(private employeeService: EmployeeService, private router: Router) { 
   }
 
-  // Method to save an employee
   saveEmployee(){
     this.employee = new Employee(this.makeRandomID(), this.firstname, this.lastname, this.age, this.designation);
     this.employeeService.addEmployee(this.employee);
     this.router.navigate(["Employees"]);
   }
-
-  // Method to cancel the add operation
   cancelEmployee(){
     this.router.navigate(["Employees"]);
   }
 
-  // Creates random id for employee
   makeRandomID(): string {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
